@@ -5,7 +5,7 @@ const userSchema = mongoose.Schema({
     name:{type: String, required: true},
     photoURL:{type: String, required: true},
     email:{type: String, required: true},
-    acedemic_year:{type: String, required: true},
+    academic_year:{type: String, required: true},
     graduating_year: {type: String, required: true},
     current_college:{type: String, ref: 'College', required: true},
     resume:{type: String, required: true},

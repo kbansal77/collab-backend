@@ -39,5 +39,27 @@ router.post("/", (req, res, next) => {
 
 //patch user
 //get user
+router.get("/:userId", (req, res, next) => {
+  const userId = req.params.userId;
+  
+  User.findById(userId)
+  .exec()
+      .then((result) => {
+          const user = result;
+          res.status(201).json({
+              success: true,
+              message: "User was fetched",
+              data: user,
+          })
+          
+      })
+      .catch((err) => {
+          res.status(400).json({
+            message: err,
+          });
+        });
+
+
+});
 
 module.exports = router;

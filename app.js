@@ -7,9 +7,12 @@ const User = require('./api/models/user')
 const College = require('./api/models/college')
 const Post = require('./api/models/post')
 
+
 const app = express();
 
 const collegesRoute = require('./api/routes/colleges')
+const postRoute = require('./api/routes/posts')
+const userRoute = require('./api/routes/users')
 // console.log(process.env.MONGO_ATLAS_PWD)
 mongoose.connect(
     "mongodb+srv://collab:" +
@@ -23,6 +26,9 @@ app.use(express.json());
 app.use(cors());
 
 app.use("/colleges",collegesRoute)
+app.use("/posts", postRoute)
+app.use("/users", userRoute)
+
 
 app.use((req, res, next) => {
   const error = new Error("Not found");
