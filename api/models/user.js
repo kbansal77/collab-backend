@@ -13,7 +13,7 @@ const userSchema = mongoose.Schema({
     github:{type: String, required: false},
     gitlab:{type: String, required: false},
     website:{type: String, required: false},
-    desc:{type: String, required: false},
+    description:{type: String, required: false},
     posts_created:{type: [String], ref : 'Post', required: true},
     posts_applied:{type: [mongoose.Schema.Types.Mixed], ref : 'Post', required: true},
     posts_saved:{type: [String], ref : 'Post', required: true}

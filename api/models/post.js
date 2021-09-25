@@ -11,7 +11,7 @@ const postSchema = mongoose.Schema({
     tech_stack:{type:[String], require:true},
     eligible_years:{type: [String], require:true},
     own_college:{type: Boolean, require:true},
-    team_size:{type:String,require:true},
+    positions_available:{type:String,require:true},
     visible_details:{type:[String],require:false},
     post_description:{type:String,require:true},
     roles:{type:[mongoose.Schema.Types.Mixed],require:true},
@@ -23,13 +23,10 @@ const postSchema = mongoose.Schema({
     end_date:{type:String, require:false},
     duration:{type:String, require:false},
     website:{type:String, require:false},
-    perks:{type:String, require:false},
     venue:{type:String, require:false},
     working_hours:{type:String, require:false},
-    company_linkedin:{type:String, require:false},
-    job_offer:{type:Boolean, require : false},
-    company_website:{type:String, require:false},
-    
+    company_name:{type:String, require:false},
+    stipend:{type:String, require:false}
 })
 
 module.exports = mongoose.model('Post', postSchema);

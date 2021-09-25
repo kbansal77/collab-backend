@@ -37,6 +37,22 @@ router.post("/", (req, res, next) => {
   });
 });
 
+router.patch("/:userId",(req, res, next)=>{
+  if(req.headers.uid == req.params.userId){
+    const uid = req.headers.uid
+    User.findById(uid).exec().then(user_details=>{
+      const user = req.body
+      User.updateOne({_id:uid}, {$set: user}).exec()
+      .then(()=>{
+        console.log("User Added")
+      })
+      .catch((err)=>{
+        console.log(err)
+      })
+    })
+  }
+})
+
 //patch user
 //get user
 router.get("/:userId", (req, res, next) => {
